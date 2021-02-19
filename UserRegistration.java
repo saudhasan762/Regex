@@ -2,27 +2,21 @@ import java.util.Scanner;
 
 public class UserRegistration {
 	static String first,last,regex,email,pnumber,pass;
+	Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-	    System.out.println("Enter first name: ");
-	    first = sc.next();
-	    checkFirstName();
-	    System.out.println("Enter last name: ");
-	    last = sc.next();
-	    checkLastName();
-	    System.out.println("Enter email: ");
-	    email = sc.next();
-	    checkEmail();
-		System.out.println("Enter Mobile Number: ");
-		pnumber = sc.next();
-	    checkMobileNumber();
-	    System.out.println("Enter Password: ");
-	    pass = sc.next();
-	    checkPassword();                         
+		UserRegistration user=new UserRegistration();
+		 
+	    user.checkFirstName();
+	    user.checkLastName(); 
+	    user.checkEmail();
+	    user.checkMobileNumber();
+	    user.checkPassword();                         
 	}
 	
-	static void checkFirstName() {
+	void checkFirstName() {
+		System.out.println("Enter first name: ");
+	    first = sc.nextLine();
 		regex = "^[A-Z]{1}[a-z]{2,}";
 		boolean result = first.matches(regex);
 		if(result)
@@ -31,7 +25,9 @@ public class UserRegistration {
 	         System.out.println("Invalid first name");			
 	}
 	
-	static void checkLastName() {
+	void checkLastName() {
+		System.out.println("Enter last name: ");
+	    last = sc.nextLine();
 		regex = "^[A-Z]{1}[a-z]{2,}";
 		boolean result = last.matches(regex);
 		if(result)
@@ -40,8 +36,10 @@ public class UserRegistration {
 	         System.out.println("Invalid last name");      
 	}
 	
-	static void checkEmail() {
-		regex = "^[a-zA-Z0-9_+-.]+@[a-z]+.[a-z]+(.?)([a-z]+?)$";
+	void checkEmail() {
+		System.out.println("Enter email: ");
+	    email = sc.nextLine();
+		regex = "^[a-zA-Z0-9]+[a-zA-Z0-9([_+-.]{1})]+(@{1})[a-z0-9]+.[a-z]+(.?)([a-z]{2}?)$";
 		boolean result = email.matches(regex);
 		if(result)
 	         System.out.println("Valid Email");
@@ -49,8 +47,10 @@ public class UserRegistration {
 	         System.out.println("Invalid Email");      
 	}
 	
-	static void checkMobileNumber() {
-		regex = "^([9]{1}[1]{1})[0-9]{10}";
+	void checkMobileNumber() {
+		System.out.println("Enter Mobile Number: ");
+		pnumber = sc.nextLine();
+		regex = "^([9]{1}[1]{1})\\s{1}[0-9]{10}$";
 		boolean result = pnumber.matches(regex);
 		if(result)
 	         System.out.println("Valid Number");
@@ -58,7 +58,9 @@ public class UserRegistration {
 	         System.out.println("Invalid Number");      
 	}
 	
-	static void checkPassword() {
+	void checkPassword() {
+		 System.out.println("Enter Password: ");
+		    pass = sc.nextLine();
 	//	regex1 = "^[a-zA-z0-9]{8,}$";
 	//	regex2 = "^(?=.*?[A-Z])[A-Za-z]{8,}$";
 	//	regex3 = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[a-z]).{8,}$";

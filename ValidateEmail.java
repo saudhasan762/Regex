@@ -10,7 +10,7 @@ public class ValidateEmail {
 	//    String regex2 = "^[a-z]+@[a-z]+$";                     //UC2
     //    String regex3 = "^[a-z]+@[a-z]+.[a-z]+$";              //UC3     
 	//    String regex5 = "^[a-z_+-.]+@[a-z]+.[a-z]+$";          //UC4
-	      String regex = "^[a-zA-Z0-9_+-.]+@[a-z]+.[a-z]+(.?)([a-z]+?)$";     //UC5
+	      String regex = "^[a-zA-Z0-9]+([_+-.]{0,1})([@]{1})[a-z0-1]+.[a-z]+(.?)([a-z]{2}?)$";     //UC5
 	      boolean result = email.matches(regex);
 	      if(result) {
 	         System.out.println("Given email-id is valid");
